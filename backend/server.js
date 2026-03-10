@@ -32,7 +32,7 @@ app.use(cors({
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-session-id'],
 }));
 
 // Parse incoming JSON request bodies
@@ -97,5 +97,7 @@ const startServer = async () => {
     process.exit(1);
   }
 };
+
+console.log("Gemini key:", process.env.GEMINI_API_KEY);
 
 startServer();

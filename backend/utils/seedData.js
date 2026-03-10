@@ -4,7 +4,7 @@
 //
 // This simulates what an "admin" would pre-populate in the real app
 
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config();
 const mongoose = require('mongoose');
 const Assignment = require('../models/Assignment');
 

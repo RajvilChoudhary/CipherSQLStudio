@@ -89,6 +89,7 @@ const getGeminiHint = async (systemPrompt, userMessage) => {
 
   if (!response.ok) {
     const err = await response.text();
+    console.error('Gemini raw error:', err);
     throw new Error(`Gemini API error: ${err}`);
   }
 
