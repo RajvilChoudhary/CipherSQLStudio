@@ -1,0 +1,93 @@
+// frontend/src/styles/components/_editor.scss
+@import '../base/variables';
+@import '../base/mixins';
+
+.sql-editor {
+  @include flex-col;
+  gap: 0;
+  
+  &__toolbar {
+    padding: $space-2 $space-3;
+    background: var(--color-bg-elevated);
+    border-bottom: 1px solid var(--color-border);
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: $space-2;
+  }
+  
+  &__info {
+    font-size: $text-xs;
+    color: var(--color-text-muted);
+    @include code-font;
+  }
+  
+  &__actions {
+    display: flex;
+    gap: $space-2;
+    flex-wrap: wrap;
+  }
+
+  &__container {
+    position: relative;
+    flex: 1;
+    min-height: 160px;
+    
+    // Monaco editor overrides
+    .monaco-editor {
+      border-radius: 0;
+    }
+  }
+
+  &__keyboard-hint {
+    padding: $space-2 $space-3;
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+    background: var(--color-bg-elevated);
+    @include code-font;
+    border-top: 1px solid var(--color-border);
+    
+    kbd {
+      display: inline-flex;
+      padding: 1px 5px;
+      background: var(--color-bg-input);
+      border: 1px solid var(--color-border-strong);
+      border-radius: 3px;
+      font-size: 0.65rem;
+    }
+  }
+}
+
+// Error message below editor
+.query-error {
+  padding: $space-3 $space-4;
+  background: var(--color-danger-glow);
+  border-top: 1px solid rgba(248, 113, 113, 0.3);
+  
+  &__title {
+    font-size: $text-xs;
+    font-weight: 600;
+    color: var(--color-danger);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: $space-1;
+  }
+  
+  &__message {
+    font-size: $text-xs;
+    color: rgba(248, 113, 113, 0.9);
+    @include code-font;
+    line-height: 1.5;
+  }
+}
+
+// Success indicator
+.query-success {
+  padding: $space-2 $space-4;
+  background: var(--color-primary-glow);
+  border-top: 1px solid var(--color-primary-border);
+  font-size: $text-xs;
+  color: var(--color-primary);
+  @include code-font;
+  @include flex-center;
+  gap: $space-2;
+}

@@ -1,0 +1,12 @@
+{
+  "name": "ciphersqlstudio",
+  "version": "1.0.0",
+  "description": "SQL learning platform - run both frontend and backend",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "seed": "cd backend && npm run seed"
+  },
+  "private": true
+}

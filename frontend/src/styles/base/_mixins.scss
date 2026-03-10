@@ -1,0 +1,138 @@
+// frontend/src/styles/base/_mixins.scss
+// Mixins = reusable blocks of CSS you can "include" anywhere
+// Think of them like functions for CSS
+
+@import 'variables';
+
+// ============================================
+// RESPONSIVE BREAKPOINT MIXINS
+// Mobile-first: default = mobile, then add rules for larger screens
+// ============================================
+
+// Usage: @include tablet { ... }  <- applies at 641px+
+@mixin tablet {
+  @media (min-width: #{$bp-tablet}) { @content; }
+}
+
+// Usage: @include desktop { ... }  <- applies at 1024px+
+@mixin desktop {
+  @media (min-width: #{$bp-desktop}) { @content; }
+}
+
+// Usage: @include wide { ... }  <- applies at 1281px+
+@mixin wide {
+  @media (min-width: #{$bp-wide}) { @content; }
+}
+
+// ============================================
+// FLEXBOX SHORTCUTS
+// ============================================
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// ============================================
+// VISUAL EFFECTS
+// ============================================
+
+// Glassmorphism card effect
+@mixin glass-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-lg;
+  backdrop-filter: blur(8px);
+}
+
+// Glowing border on focus/hover
+@mixin glow-border($color: var(--color-primary)) {
+  border-color: $color;
+  box-shadow: 0 0 0 2px rgba(0, 255, 135, 0.15), 0 0 16px rgba(0, 255, 135, 0.1);
+}
+
+// Neon text glow
+@mixin neon-text($color: var(--color-primary)) {
+  color: $color;
+  text-shadow: 0 0 10px rgba(0, 255, 135, 0.5), 0 0 30px rgba(0, 255, 135, 0.2);
+}
+
+// ============================================
+// TYPOGRAPHY SHORTCUTS
+// ============================================
+@mixin code-font {
+  font-family: $font-code;
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// ============================================
+// SCROLLBAR STYLING
+// ============================================
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--color-bg-base);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-border-strong);
+    border-radius: $radius-full;
+    
+    &:hover {
+      background: var(--color-text-muted);
+    }
+  }
+}
+
+// ============================================
+// BUTTON BASE
+// ============================================
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  border: none;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-decoration: none;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ============================================
+// TERMINAL/CODE AESTHETIC
+// ============================================
+@mixin terminal-surface {
+  background: var(--color-bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+  @include code-font;
+  @include custom-scrollbar;
+}

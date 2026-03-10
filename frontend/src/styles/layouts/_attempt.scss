@@ -1,0 +1,244 @@
+// frontend/src/styles/layouts/_attempt.scss
+@import '../base/variables';
+@import '../base/mixins';
+
+.attempt-page {
+  flex: 1;
+  @include flex-col;
+  max-width: 100%;
+  overflow: hidden;
+  
+  // Back bar at top
+  &__topbar {
+    padding: $space-2 $space-4;
+    border-bottom: 1px solid var(--color-border);
+    @include flex-between;
+    background: var(--color-bg-surface);
+    gap: $space-4;
+    flex-wrap: wrap;
+    
+    @include tablet {
+      padding: $space-2 $space-6;
+    }
+  }
+  
+  &__breadcrumb {
+    @include flex-center;
+    gap: $space-2;
+    font-size: $text-sm;
+    color: var(--color-text-muted);
+    
+    .sep { margin: 0 $space-1; }
+    
+    .current {
+      color: var(--color-text-primary);
+      font-weight: 500;
+      @include truncate;
+      max-width: 200px;
+      
+      @include tablet { max-width: 400px; }
+    }
+  }
+  
+  &__difficulty {
+    @include flex-center;
+    gap: $space-2;
+  }
+
+  // ======================================================
+  // MAIN LAYOUT - Stack on mobile, side-by-side on desktop
+  // ======================================================
+  &__layout {
+    flex: 1;
+    display: flex;
+    flex-direction: column;  // Mobile: vertical stack
+    overflow: hidden;
+    
+    @include desktop {
+      flex-direction: row;   // Desktop: side by side
+    }
+  }
+  
+  // LEFT COLUMN: Question + sample data
+  &__left {
+    @include flex-col;
+    overflow-y: auto;
+    @include custom-scrollbar;
+    border-bottom: 1px solid var(--color-border);
+    
+    @include desktop {
+      width: 38%;
+      min-width: 300px;
+      max-width: 480px;
+      border-bottom: none;
+      border-right: 1px solid var(--color-border);
+    }
+  }
+  
+  // RIGHT COLUMN: Editor + results
+  &__right {
+    flex: 1;
+    @include flex-col;
+    overflow: hidden;
+    min-height: 0;
+  }
+}
+
+// Question display panel
+.question-panel {
+  padding: $space-5;
+  border-bottom: 1px solid var(--color-border);
+  
+  &__label {
+    font-size: $text-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    @include code-font;
+    margin-bottom: $space-3;
+    @include flex-center;
+    gap: $space-2;
+    width: fit-content;
+    
+    &::before {
+      content: '//';
+      opacity: 0.5;
+    }
+  }
+  
+  &__title {
+    font-family: $font-display;
+    font-size: $text-xl;
+    font-weight: 700;
+    margin-bottom: $space-3;
+    line-height: 1.3;
+  }
+  
+  &__text {
+    font-size: $text-sm;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    
+    // Highlight table names in question text
+    strong {
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+  }
+  
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+    margin-top: $space-4;
+  }
+}
+
+// Sample data panel (shows tables and their contents)
+.data-panel {
+  flex: 1;
+  @include flex-col;
+  padding: $space-4;
+  gap: $space-4;
+  
+  &__title {
+    font-size: $text-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    @include code-font;
+    @include flex-center;
+    gap: $space-2;
+    width: fit-content;
+    
+    &::before {
+      content: '>';
+      color: var(--color-primary);
+    }
+  }
+  
+  .table-block {
+    @include glass-card;
+    overflow: hidden;
+    border-radius: $radius-md;
+    
+    &__header {
+      padding: $space-2 $space-3;
+      background: var(--color-bg-elevated);
+      border-bottom: 1px solid var(--color-border);
+      @include flex-between;
+      
+      .table-name {
+        font-size: $text-sm;
+        font-weight: 600;
+        color: var(--color-accent);
+        @include code-font;
+        
+        &::before {
+          content: '⊞ ';
+          opacity: 0.6;
+        }
+      }
+      
+      .row-count {
+        font-size: $text-xs;
+        color: var(--color-text-muted);
+        @include code-font;
+      }
+    }
+    
+    &__content {
+      overflow-x: auto;
+      max-height: 200px;
+      @include custom-scrollbar;
+    }
+  }
+}
+
+// Editor + results area
+.editor-area {
+  flex: 1;
+  @include flex-col;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.results-area {
+  flex: 1;
+  overflow: hidden;
+  @include flex-col;
+  min-height: 120px;
+  max-height: 300px;
+  
+  @include desktop {
+    max-height: none;
+    flex: 1;
+  }
+  
+  &__empty {
+    @include flex-col;
+    @include flex-center;
+    flex: 1;
+    gap: $space-3;
+    color: var(--color-text-muted);
+    font-size: $text-sm;
+    padding: $space-8;
+    text-align: center;
+    
+    .empty-icon {
+      font-size: 2rem;
+      opacity: 0.2;
+    }
+    
+    p {
+      @include code-font;
+      font-size: $text-xs;
+    }
+  }
+  
+  &__scroll {
+    flex: 1;
+    overflow: auto;
+    @include custom-scrollbar;
+  }
+}

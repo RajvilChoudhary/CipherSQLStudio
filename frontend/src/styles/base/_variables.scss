@@ -1,0 +1,113 @@
+// frontend/src/styles/base/_variables.scss
+// ALL design tokens (colors, fonts, spacing) defined here
+// Using CSS custom properties (var(--x)) lets us change themes dynamically
+
+// ============================================
+// COLOR PALETTE - Dark terminal aesthetic
+// ============================================
+:root {
+  // Primary brand
+  --color-primary: #00ff87;        // Neon green - our signature color
+  --color-primary-dim: #00cc6a;
+  --color-primary-glow: rgba(0, 255, 135, 0.15);
+  --color-primary-border: rgba(0, 255, 135, 0.3);
+
+  // Secondary accent
+  --color-accent: #60a5fa;          // Electric blue
+  --color-accent-dim: #3b82f6;
+  --color-accent-glow: rgba(96, 165, 250, 0.15);
+
+  // Warning / error
+  --color-danger: #f87171;
+  --color-danger-dim: #ef4444;
+  --color-danger-glow: rgba(248, 113, 113, 0.15);
+  --color-warning: #fbbf24;
+
+  // Backgrounds (dark terminal)
+  --color-bg-base: #0a0e1a;         // Deep dark blue-black
+  --color-bg-surface: #0f1626;      // Slightly lighter card bg
+  --color-bg-elevated: #161d2e;     // Even lighter for modals/panels
+  --color-bg-input: #1a2135;        // Input fields
+  --color-bg-hover: #1e2840;        // Hover state
+
+  // Text
+  --color-text-primary: #e8edf7;    // Near white
+  --color-text-secondary: #8892a4;  // Muted grey
+  --color-text-muted: #4a5568;      // Very muted
+  --color-text-code: #a9b7d0;       // Code text
+
+  // Borders
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-strong: rgba(255, 255, 255, 0.12);
+
+  // Difficulty colors
+  --color-easy: #4ade80;
+  --color-medium: #fbbf24;
+  --color-hard: #f87171;
+}
+
+// ============================================
+// TYPOGRAPHY
+// ============================================
+$font-display: 'Syne', sans-serif;      // Headings - geometric, futuristic
+$font-body: 'DM Sans', sans-serif;      // Body text - clean, readable
+$font-code: 'JetBrains Mono', monospace; // Code - developer font
+
+// Font sizes (clamp = responsive: min, preferred, max)
+$text-xs: clamp(0.7rem, 1vw, 0.75rem);
+$text-sm: clamp(0.8rem, 1.2vw, 0.875rem);
+$text-base: clamp(0.9rem, 1.5vw, 1rem);
+$text-md: clamp(1rem, 1.8vw, 1.125rem);
+$text-lg: clamp(1.1rem, 2vw, 1.25rem);
+$text-xl: clamp(1.25rem, 2.5vw, 1.5rem);
+$text-2xl: clamp(1.5rem, 3vw, 2rem);
+$text-3xl: clamp(2rem, 4vw, 2.5rem);
+$text-4xl: clamp(2.5rem, 5vw, 3.5rem);
+
+// ============================================
+// SPACING
+// ============================================
+$space-1: 0.25rem;   // 4px
+$space-2: 0.5rem;    // 8px
+$space-3: 0.75rem;   // 12px
+$space-4: 1rem;      // 16px
+$space-5: 1.25rem;   // 20px
+$space-6: 1.5rem;    // 24px
+$space-8: 2rem;      // 32px
+$space-10: 2.5rem;   // 40px
+$space-12: 3rem;     // 48px
+$space-16: 4rem;     // 64px
+$space-20: 5rem;     // 80px
+
+// ============================================
+// BREAKPOINTS (Mobile-first!)
+// ============================================
+$bp-mobile: 320px;    // Smallest phones
+$bp-tablet: 641px;    // Tablets
+$bp-desktop: 1024px;  // Desktops
+$bp-wide: 1281px;     // Wide screens
+
+// ============================================
+// BORDER RADIUS
+// ============================================
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-full: 9999px;
+
+// ============================================
+// TRANSITIONS
+// ============================================
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-slow: 400ms ease;
+
+// ============================================
+// SHADOWS
+// ============================================
+$shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+$shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+$shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+$shadow-glow-green: 0 0 20px rgba(0, 255, 135, 0.2);
+$shadow-glow-blue: 0 0 20px rgba(96, 165, 250, 0.2);

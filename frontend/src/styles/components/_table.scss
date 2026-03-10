@@ -1,0 +1,111 @@
+// frontend/src/styles/components/_table.scss
+@import '../base/variables';
+@import '../base/mixins';
+
+// Results table - shown after query execution
+.results-table {
+  width: 100%;
+  overflow-x: auto;
+  @include custom-scrollbar;
+
+  &__meta {
+    @include flex-between;
+    padding: $space-2 $space-3;
+    font-size: $text-xs;
+    color: var(--color-text-muted);
+    @include code-font;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-elevated);
+  }
+
+  &__count {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  &__time {
+    color: var(--color-text-muted);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: $text-sm;
+    min-width: 400px; // Ensures scrolling on mobile
+  }
+
+  thead {
+    tr {
+      background: var(--color-bg-elevated);
+      border-bottom: 1px solid var(--color-border-strong);
+    }
+    
+    th {
+      padding: $space-2 $space-3;
+      text-align: left;
+      font-size: $text-xs;
+      font-weight: 600;
+      color: var(--color-primary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      @include code-font;
+      white-space: nowrap;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid var(--color-border);
+      transition: background $transition-fast;
+      
+      &:hover {
+        background: var(--color-bg-hover);
+      }
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    
+    td {
+      padding: $space-2 $space-3;
+      color: var(--color-text-primary);
+      @include code-font;
+      font-size: $text-xs;
+      
+      // NULL values look different
+      &.null-value {
+        color: var(--color-text-muted);
+        font-style: italic;
+      }
+    }
+  }
+}
+
+// Sample data table (shows existing table structure)
+.schema-table {
+  width: 100%;
+  font-size: $text-xs;
+  @include code-font;
+  
+  th {
+    padding: $space-1 $space-2;
+    color: var(--color-text-muted);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  td {
+    padding: $space-1 $space-2;
+    color: var(--color-text-secondary);
+    
+    &.col-name {
+      color: var(--color-accent);
+    }
+    
+    &.col-type {
+      color: var(--color-primary);
+      font-size: 0.7rem;
+    }
+  }
+}

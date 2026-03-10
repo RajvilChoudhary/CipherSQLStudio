@@ -1,0 +1,125 @@
+// frontend/src/styles/layouts/_home.scss
+@import '../base/variables';
+@import '../base/mixins';
+
+.home-page {
+  flex: 1;
+  @include flex-col;
+  
+  // Hero section
+  &__hero {
+    padding: $space-16 $space-4 $space-12;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    
+    @include tablet {
+      padding: $space-20 $space-8 $space-16;
+    }
+    
+    // Subtle grid background effect
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(0, 255, 135, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 135, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+    
+    // Radial glow behind title
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(0, 255, 135, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+  }
+  
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-1 $space-3;
+    background: var(--color-primary-glow);
+    border: 1px solid var(--color-primary-border);
+    border-radius: $radius-full;
+    font-size: $text-xs;
+    color: var(--color-primary);
+    @include code-font;
+    margin-bottom: $space-6;
+    letter-spacing: 0.05em;
+  }
+  
+  &__title {
+    font-family: $font-display;
+    font-size: $text-4xl;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: $space-6;
+    position: relative;
+    z-index: 1;
+    
+    .highlight {
+      @include neon-text;
+      display: inline-block;
+    }
+  }
+  
+  &__subtitle {
+    font-size: $text-md;
+    color: var(--color-text-secondary);
+    max-width: 560px;
+    margin: 0 auto $space-8;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+  
+  &__cta {
+    display: flex;
+    justify-content: center;
+    gap: $space-3;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  
+  // Stats bar
+  &__stats {
+    display: flex;
+    justify-content: center;
+    gap: $space-8;
+    padding: $space-6 $space-4;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    flex-wrap: wrap;
+    
+    .stat {
+      text-align: center;
+      
+      &__value {
+        font-family: $font-display;
+        font-size: $text-2xl;
+        font-weight: 800;
+        color: var(--color-primary);
+        @include code-font;
+      }
+      
+      &__label {
+        font-size: $text-xs;
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: $space-1;
+      }
+    }
+  }
+}

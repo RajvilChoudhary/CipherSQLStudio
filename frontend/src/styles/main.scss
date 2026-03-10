@@ -1,0 +1,24 @@
+// frontend/src/styles/main.scss
+// This is the SINGLE file that imports everything else
+// SCSS partials (files starting with _) are imported here
+// Vite will compile this into a single CSS file
+
+// Base layer (order matters!)
+@import 'base/variables';    // Must be first - others depend on variables
+@import 'base/mixins';       // Must be second - others use mixins
+@import 'base/reset';        // Reset browser defaults
+
+// Component styles
+@import 'components/navbar';
+@import 'components/buttons';
+@import 'components/badges';
+@import 'components/cards';
+@import 'components/table';
+@import 'components/editor';
+@import 'components/hint-panel';
+@import 'components/loading';
+
+// Page/Layout styles
+@import 'layouts/home';
+@import 'layouts/assignments';
+@import 'layouts/attempt';

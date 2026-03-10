@@ -1,0 +1,39 @@
+// frontend/src/styles/components/_badges.scss
+@import '../base/variables';
+@import '../base/mixins';
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-1 $space-3;
+  border-radius: $radius-full;
+  font-size: $text-xs;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  &--easy {
+    color: var(--color-easy);
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+  }
+
+  &--medium {
+    color: var(--color-medium);
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+  }
+
+  &--hard {
+    color: var(--color-hard);
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+  }
+
+  &--tag {
+    color: var(--color-accent);
+    background: var(--color-accent-glow);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    text-transform: none;
+  }
+}

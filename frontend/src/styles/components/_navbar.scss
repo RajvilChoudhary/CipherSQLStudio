@@ -1,0 +1,87 @@
+// frontend/src/styles/components/_navbar.scss
+@import '../base/variables';
+@import '../base/mixins';
+
+// BEM: Block = .navbar, Element = .navbar__logo, Modifier = .navbar--transparent
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: $space-3 $space-4;
+  background: rgba(10, 14, 26, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  @include flex-between;
+
+  @include tablet {
+    padding: $space-3 $space-8;
+  }
+
+  // The logo/brand text
+  &__brand {
+    @include flex-center;
+    gap: $space-2;
+    
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      border-radius: $radius-md;
+      @include flex-center;
+      font-size: $text-sm;
+      font-weight: 700;
+      color: #0a0e1a;
+      @include code-font;
+      flex-shrink: 0;
+    }
+    
+    .brand-name {
+      font-family: $font-display;
+      font-size: $text-lg;
+      font-weight: 800;
+      
+      span {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  // Navigation links
+  &__nav {
+    @include flex-center;
+    gap: $space-4;
+    
+    a {
+      font-size: $text-sm;
+      color: var(--color-text-secondary);
+      transition: color $transition-fast;
+      
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  // Terminal-style status indicator
+  &__status {
+    @include flex-center;
+    gap: $space-2;
+    font-size: $text-xs;
+    color: var(--color-text-muted);
+    @include code-font;
+    
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: $radius-full;
+      background: var(--color-primary);
+      animation: pulse 2s ease infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

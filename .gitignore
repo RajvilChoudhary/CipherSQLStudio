@@ -1,0 +1,26 @@
+# Environment files (NEVER commit these - they contain secrets!)
+.env
+*.env
+!.env.example
+
+# Node modules (can be reinstalled with npm install)
+node_modules/
+*/node_modules/
+
+# Build outputs
+dist/
+build/
+.vite/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
